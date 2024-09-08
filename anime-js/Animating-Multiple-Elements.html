@@ -1,0 +1,46 @@
+<!-- Animating Multiple Elements -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime.js Multiple Elements</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background: red;
+      margin: 10px;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    anime({
+      targets: '.box',
+      translateX: {
+        value: 250,
+        duration: 1000
+      },
+      rotate: {
+        value: 360,
+        duration: 1000,
+        easing: 'easeInOutSine'
+      },
+      backgroundColor: '#00FF00',
+      delay: anime.stagger(100), // Delay each element by 100ms
+      loop: true,
+      direction: 'alternate'
+    });
+
+  </script>
+</body>
+
+</html>

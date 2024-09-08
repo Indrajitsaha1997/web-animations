@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Anime.js Example</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background: red;
+      margin: 50px auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <script>
+    anime({
+      targets: '.box',
+      translateX: 250,      // Move the box 250px along the x-axis
+      duration: 2000,       // Animation duration in milliseconds
+      easing: 'easeInOutQuad', // Animation easing function
+      loop: true            // Loop the animation
+    });
+
+  </script>
+</body>
+
+</html>

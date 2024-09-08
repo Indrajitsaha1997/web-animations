@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velocity.js Multiple Elements Example</title>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: purple;
+      margin: 10px;
+      position: relative;
+      display: inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <div class="box"></div>
+  <div class="box"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.min.js"></script>
+  <script>
+    // Animate all elements with class 'box'
+    Velocity(document.querySelectorAll('.box'), {
+      left: "200px",
+      opacity: 1
+    }, {
+      duration: 1000,
+      stagger: 250  // Delay each animation by 250ms
+    });
+  </script>
+</body>
+
+</html>

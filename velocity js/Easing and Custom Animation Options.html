@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velocity.js Easing Example</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: green;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.min.js"></script>
+  <script>
+    // Animate with easing, delay, and loop
+    Velocity(document.getElementById('box'), {
+      left: "300px",
+      opacity: 1
+    }, {
+      duration: 1500,
+      easing: "easeInOutQuad",
+      delay: 500,
+      loop: 2  // Loop animation 2 times
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,56 @@
+<!-- Fluid Typography with Scroll Animation (Using JavaScript and GSAP)
+For more interactive animations, you can animate typography based on the user's scroll behavior using GSAP ScrollTrigger. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fluid Typography on Scroll</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      height: 200vh;
+    }
+
+    h1 {
+      font-size: 5rem;
+      position: fixed;
+      top: 40%;
+      width: 100%;
+      text-align: center;
+      transition: font-size 0.3s ease;
+    }
+
+    section {
+      height: 100vh;
+      padding-top: 20px;
+    }
+  </style>
+</head>
+
+<body>
+  <section>
+    <h1>Scroll to Animate Typography</h1>
+  </section>
+
+  <script>
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.to("h1", {
+      scrollTrigger: {
+        trigger: "section",
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+      },
+      fontSize: "15rem",
+    });
+  </script>
+</body>
+
+</html>

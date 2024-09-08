@@ -1,0 +1,67 @@
+<!-- Particles Animation in Three.js
+Three.js makes it possible to create beautiful particle systems that can be animated for effects like rain, stars, or other visual elements. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three.js Particles</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+
+<body>
+  <script>
+    // Scene, Camera, Renderer setup
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Particle system
+    const particles = new THREE.BufferGeometry();
+    const particleCount = 5000;
+    const positions = new Float32Array(particleCount * 3);
+
+    // Set random positions for particles
+    for (let i = 0; i < particleCount; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 10;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 10;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 10;
+    }
+
+    particles.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+
+    // Material for particles
+    const particleMaterial = new THREE.PointsMaterial({ color: 0xffffff, size: 0.05 });
+    const particleMesh = new THREE.Points(particles, particleMaterial);
+    scene.add(particleMesh);
+
+    // Camera position
+    camera.position.z = 5;
+
+    // Animation loop
+    function animate() {
+      requestAnimationFrame(animate);
+
+      // Rotate the particle system
+      particleMesh.rotation.y += 0.001;
+
+      renderer.render(scene, camera);
+    }
+
+    animate();
+  </script>
+</body>
+
+</html>

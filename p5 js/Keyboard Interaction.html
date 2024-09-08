@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P5.js Keyboard Interaction</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+
+<body>
+  <script>
+    function setup() {
+      createCanvas(400, 400);
+    }
+
+    function draw() {
+      // No continuous drawing needed
+    }
+
+    function keyPressed() {
+      if (keyCode === LEFT_ARROW) {
+        background(255, 0, 0);  // Red background for left arrow
+      } else if (keyCode === RIGHT_ARROW) {
+        background(0, 255, 0);  // Green background for right arrow
+      } else if (keyCode === UP_ARROW) {
+        background(0, 0, 255);  // Blue background for up arrow
+      } else if (keyCode === DOWN_ARROW) {
+        background(255, 255, 0);  // Yellow background for down arrow
+      }
+    }
+  </script>
+</body>
+
+</html>

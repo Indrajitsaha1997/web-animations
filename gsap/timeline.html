@@ -1,0 +1,35 @@
+<!-- Timeline Animations
+A timeline lets you chain multiple animations together, with control over their sequencing and timing.
+This is useful for complex animations that require multiple  -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Timeline</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin: 50px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+
+  <script>
+    const tl = gsap.timeline();
+
+    tl.to(".box", { duration: 1, x: 200 })
+      .to(".box", { duration: 1, rotation: 180 })
+      .to(".box", { duration: 1, x: 0 })
+      .to(".box", { duration: 1, rotation: 0 });
+  </script>
+</body>
+
+</html>

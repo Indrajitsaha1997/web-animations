@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velocity.js Chaining Example</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.min.js"></script>
+  <script>
+    // Chain multiple animations using Velocity.js
+    Velocity(document.getElementById('box'), { left: "300px" }, { duration: 1000 })
+      .then(function () {
+        return Velocity(document.getElementById('box'), { scale: 1.5 }, { duration: 1000 });
+      })
+      .then(function () {
+        return Velocity(document.getElementById('box'), { opacity: 0 }, { duration: 1000 });
+      });
+  </script>
+</body>
+
+</html>

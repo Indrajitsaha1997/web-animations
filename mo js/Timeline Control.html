@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mo.js Timeline Example</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/@mojs/core"></script>
+  <script>
+    // First animation: expanding circle
+    const circle = new mojs.Shape({
+      shape: 'circle',
+      fill: 'none',
+      stroke: 'red',
+      radius: { 0: 100 },
+      strokeWidth: { 20: 0 },
+      duration: 2000
+    });
+
+    // Second animation: square rotation
+    const square = new mojs.Shape({
+      shape: 'rect',
+      fill: 'none',
+      stroke: 'green',
+      strokeWidth: { 20: 0 },
+      radius: 50,
+      duration: 2000,
+      angle: { 0: 180 }
+    });
+
+    // Create a timeline and add both animations
+    const timeline = new mojs.Timeline();
+    timeline.add(circle, square);
+
+    // Play the timeline
+    timeline.play();
+  </script>
+</body>
+
+</html>

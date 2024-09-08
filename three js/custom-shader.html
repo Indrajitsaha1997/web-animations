@@ -1,0 +1,90 @@
+<!-- Let's walk through a complete example of a custom shader animation using Three.js.
+ We'll create a simple animated effect where a color wave moves across a plane.
+ This example will include both the JavaScript code for Three.js and the GLSL code for the vertex and fragment shaders. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Three.js Shader Animation</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script>
+    // Setup scene, camera, and renderer
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Vertex Shader
+    const vertexShader = `
+    varying vec2 vUv;
+
+    void main() {
+        vUv = uv;
+        gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+    }
+`;
+
+    // Fragment Shader
+    const fragmentShader = `
+    uniform float time;
+    varying vec2 vUv;
+
+    void main() {
+        float wave = sin(vUv.y * 10.0 + time) * 0.5 + 0.5;
+        gl_FragColor = vec4(wave, 0.0, 1.0 - wave, 1.0);
+    }
+`;
+
+    // Create Shader Material
+    const material = new THREE.ShaderMaterial({
+      vertexShader: vertexShader,
+      fragmentShader: fragmentShader,
+      uniforms: {
+        time: { value: 0.0 }
+      }
+    });
+
+    // Create Plane Geometry
+    const geometry = new THREE.PlaneGeometry(5, 5, 32, 32);
+    const plane = new THREE.Mesh(geometry, material);
+    scene.add(plane);
+
+    // Position Camera
+    camera.position.z = 5;
+
+    // Animation Loop
+    function animate() {
+      requestAnimationFrame(animate);
+      material.uniforms.time.value += 0.05; // Update time uniform to animate shader
+      renderer.render(scene, camera);
+    }
+
+    animate();
+
+    // Handle Window Resize
+    window.addEventListener('resize', () => {
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+    });
+
+  </script>
+</body>
+
+</html>

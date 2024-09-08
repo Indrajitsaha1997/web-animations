@@ -1,0 +1,34 @@
+<!-- Basic Tween Animations
+A tween is the simplest type of GSAP animation. 
+It animates a single element from one state to another over a set duration. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Basic Tween</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+
+  <script>
+    gsap.to(".box", {
+      duration: 2,
+      x: 300,     // Moves 300px horizontally
+      rotation: 360 // Rotates 360 degrees
+    });
+  </script>
+</body>
+
+</html>

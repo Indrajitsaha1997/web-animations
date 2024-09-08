@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velocity.js Reverse Animation</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: orange;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+  <button id="animate">Animate</button>
+  <button id="reverse">Reverse</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.min.js"></script>
+  <script>
+    const box = document.getElementById('box');
+    const animateButton = document.getElementById('animate');
+    const reverseButton = document.getElementById('reverse');
+
+    animateButton.addEventListener('click', () => {
+      Velocity(box, { left: "300px", opacity: 1 }, { duration: 1000 });
+    });
+
+    reverseButton.addEventListener('click', () => {
+      Velocity(box, "reverse");  // Reverses the animation
+    });
+  </script>
+</body>
+
+</html>

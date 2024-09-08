@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ScrollMagic Parallax Example</title>
+  <style>
+    body {
+      height: 3000px;
+      font-family: Arial, sans-serif;
+    }
+
+    #parallax-background {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-image: url('https://source.unsplash.com/random/1600x900');
+      background-size: cover;
+      background-attachment: fixed;
+      z-index: -1;
+    }
+
+    #content {
+      margin-top: 200vh;
+      text-align: center;
+      font-size: 24px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="parallax-background"></div>
+  <div id="content">Scroll to see the parallax effect!</div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+  <script>
+    // Create a ScrollMagic controller
+    const controller = new ScrollMagic.Controller();
+
+    // Create a parallax effect by animating the background position
+    const parallaxTween = gsap.to("#parallax-background", {
+      y: "-50%",
+      ease: Linear.easeNone
+    });
+
+    // Create a ScrollMagic scene
+    const scene = new ScrollMagic.Scene({
+      triggerElement: "#content", // Start when #content is reached
+      triggerHook: 1,             // Start at the bottom of the viewport
+      duration: "200%"            // Scroll duration for the parallax effect
+    })
+      .setTween(parallaxTween)       // Apply the tween to the scroll
+      .addTo(controller);            // Add the scene to the ScrollMagic controller
+  </script>
+
+</body>
+
+</html>

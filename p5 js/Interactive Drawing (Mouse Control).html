@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>P5.js Mouse Interaction</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+</head>
+
+<body>
+  <script>
+    function setup() {
+      createCanvas(400, 400);
+      background(0);
+    }
+
+    function draw() {
+      fill(255);
+      ellipse(mouseX, mouseY, 50, 50);  // Draw circle at mouse position
+    }
+
+    function mousePressed() {
+      background(0);  // Clear the background when the mouse is pressed
+    }
+  </script>
+</body>
+
+</html>

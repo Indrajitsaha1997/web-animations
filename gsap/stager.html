@@ -1,0 +1,42 @@
+<!-- Stagger Animations
+Staggering allows you to apply animations to multiple elements with a time delay between each one,
+creating a sequential effect. -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GSAP Stagger</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/gsap.min.js"></script>
+  <style>
+    .box {
+      width: 100px;
+      height: 100px;
+      background-color: red;
+      margin: 20px;
+    }
+
+    .container {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+  </div>
+
+  <script>
+    gsap.to(".box", {
+      duration: 1,
+      x: 300,
+      stagger: 0.3 // Each box will move 300px after a delay of 0.3 seconds
+    });
+  </script>
+</body>
+
+</html>

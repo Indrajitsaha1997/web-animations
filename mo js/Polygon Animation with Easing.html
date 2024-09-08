@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mo.js Polygon Animation</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f4f4f4;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="https://cdn.jsdelivr.net/npm/@mojs/core"></script>
+  <script>
+    // Create a polygon animation with bounce easing
+    const polygon = new mojs.Shape({
+      shape: 'polygon',
+      points: 6, // Creates a hexagon
+      fill: 'none',
+      stroke: 'purple',
+      radius: { 0: 100 },
+      strokeWidth: { 20: 0 },
+      duration: 2000,
+      easing: 'bounce.out' // Easing effect
+    });
+
+    // Play the polygon animation
+    polygon.play();
+  </script>
+</body>
+
+</html>

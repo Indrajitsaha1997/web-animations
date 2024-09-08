@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Velocity.js Example</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background-color: blue;
+      position: relative;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/velocity/1.5.2/velocity.min.js"></script>
+  <script>
+    // Animate box to move right by 300px and fade it in over 2 seconds
+    Velocity(document.getElementById('box'), {
+      left: "300px",
+      opacity: 1
+    }, {
+      duration: 2000
+    });
+  </script>
+</body>
+
+</html>
